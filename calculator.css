@@ -2,7 +2,16 @@
     display: grid;
     grid-template-rows: 1fr 3fr;
     height: 100vh;
+    grid-template-areas: 
+    "display"
+    "buttons";
 }
+
+.display{
+    max-height: 150px;
+    grid-area: display;
+}
+
 
 .buttons{
     display: grid;
@@ -14,6 +23,8 @@
     "fourth"
     "fifth"
     "sixth";
+
+    grid-area: buttons;
 }
 
 .first-row{

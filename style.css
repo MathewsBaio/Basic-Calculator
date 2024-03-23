@@ -1,4 +1,4 @@
-*{
+body{
     color: #FFF;
     margin: 0;
     padding: 0;
@@ -10,7 +10,12 @@
     background-color: #505050;
     border-bottom-left-radius: 8%;
     border-bottom-right-radius: 8%;
+    font-size: xx-large;
+    text-align: right;
+    
+   
 }
+
 
 .buttons{
     background-color: #1C1C1C;
