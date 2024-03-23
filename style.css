@@ -1,0 +1,47 @@
+*{
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+    background-color: #1C1C1C
+    
+}
+
+.display{
+    background-color: #505050;
+    border-bottom-left-radius: 8%;
+    border-bottom-right-radius: 8%;
+}
+
+.buttons{
+    background-color: #1C1C1C;
+    text-align: center;
+    
+}
+
+/*#FF9500*/
+button{
+    color: #1C1C1C;
+    border-radius: 30%;
+    padding: 5px;
+    width: 80px;
+    text-align: center;
+    font-size: xx-large; 
+    background-color: #D4D4D2;
+}
+
+.small-button{
+    width: 40px;
+    font-size: large;
+    margin-left: 20px;
+    margin-right: 20px;
+   
+}
+
+.special-button{
+    background-color: #FF9500;
+}
+
+#delete-button{
+    color: #FFF;
+    background-color: #FF5251;
+}

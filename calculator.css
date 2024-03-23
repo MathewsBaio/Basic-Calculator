@@ -1,0 +1,43 @@
+.calculator{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    height: 100vh;
+}
+
+.buttons{
+    display: grid;
+    grid-template-rows: (6, 2fr);
+    grid-template-areas: 
+    "first"
+    "second"
+    "third"
+    "fourth"
+    "fifth"
+    "sixth";
+}
+
+.first-row{
+    padding-top: 20px;
+    grid-area: first;
+    
+}
+
+.second-row{
+    grid-area: second;
+}
+
+.third-row{
+    grid-area: third;
+}
+
+.fourth-row{
+    grid-area: fourth;
+}
+
+.fifth-row{
+    grid-area: fifth;
+}
+
+.sixth-row{
+    grid-area: sixth;
+}
