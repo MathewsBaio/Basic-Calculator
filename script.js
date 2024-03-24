@@ -10,10 +10,11 @@ const limit = "0000000000000000000000";
 let cont = 0;
 let j = 4;
 let indexString = 1;
-let control = false;
+let controlOperator = false;
+let controlEquals = false;
 
 NumericButtons()
-
+equalsButton()
 function adjustString() {
     cont++
     if(cont == j){
@@ -30,6 +31,13 @@ function stringInput(string, i, number) {
     parseFloat(number);
 }
 
+function recreatDisplay(string1, string2, operator) {
+    string1.textContent = "";
+    string2.textContent = "";
+    operator.textContent = "";
+    controlOperator = false;
+}
+
 //Numeric Buttons
 
 
@@ -38,14 +46,19 @@ function NumericButtons() {
     for(let i = 0; i < numericButtons.length; i++) {
 
         numericButtons[i].addEventListener("click", event =>{
+
+            if(controlEquals){
+                equalsString.textContent = "";
+                controlEquals = false;
+            }
             
-            if (!control && stringOne.textContent.length < limit.length) {
+            if (!controlOperator && stringOne.textContent.length < limit.length) {
                 stringInput(stringOne, i, numberOne);
-            } else if(control && stringTwo.textContent.length < limit.length){
+            } else if(controlOperator && stringTwo.textContent.length < limit.length){
                 stringInput(stringTwo, i, numberTwo);
             }
             additionButton()  
-            equalsButton()
+            
             
 
         })
@@ -58,6 +71,8 @@ function equalsButton() {
     equalsB.addEventListener("click", event => {
         //window.alert("test")
         equalsString.textContent = operation(stringOne, stringTwo, operator);
+        recreatDisplay(stringOne, stringTwo, operatorString)
+        controlEquals = true;
     })
     
 }
@@ -73,7 +88,7 @@ function additionButton() {
         additionB.addEventListener("click", event =>{
             operatorString.textContent = "+";
             operator = "+";
-            control = true;
+            controlOperator = true;
             cont = 0;
             j = 4;
             indexString = 1;
