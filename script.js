@@ -57,7 +57,10 @@ function NumericButtons() {
             } else if(controlOperator && stringTwo.textContent.length < limit.length){
                 stringInput(stringTwo, i, numberTwo);
             }
-            additionButton()  
+            additionButton();
+            subtractionButton();
+            multiplicationButton();
+            divisionButton();
             
             
 
@@ -97,13 +100,13 @@ function additionButton() {
 }
 
 function subtractionButton() {
-    if (string.textContent.length > 0) {
+    if (stringOne.textContent.length > 0) {
         let additionB = document.getElementById("subtraction-button");
 
         additionB.addEventListener("click", event =>{
             operatorString.textContent = "-";
-            operator = "-"
-            string = document.getElementById("num2");
+            operator = "-";
+            controlOperator = true;
             cont = 0;
             j = 4;
             indexString = 1;
@@ -112,13 +115,13 @@ function subtractionButton() {
 }
 
 function multiplicationButton() {
-    if (string.textContent.length > 0) {
+    if (stringOne.textContent.length > 0) {
         let additionB = document.getElementById("multiplication-button");
 
         additionB.addEventListener("click", event =>{
             operatorString.textContent = "x";
-            operator = "x"
-            string = document.getElementById("num2");
+            operator = "x";
+            controlOperator = true;
             cont = 0;
             j = 4;
             indexString = 1;
@@ -127,13 +130,13 @@ function multiplicationButton() {
 }
 
 function divisionButton() {
-    if (string.textContent.length > 0) {
+    if (stringOne.textContent.length > 0) {
         let additionB = document.getElementById("division-button");
 
         additionB.addEventListener("click", event =>{
             operatorString.textContent = "÷";
-            operator = "/"
-            string = document.getElementById("num2");
+            operator = "/";
+            controlOperator = true;
             cont = 0;
             j = 4;
             indexString = 1;
