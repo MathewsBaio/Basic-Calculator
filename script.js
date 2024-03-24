@@ -1,13 +1,16 @@
 
 let numberOne = "", numberTwo = "", operator;
-let string = document.getElementById("num1");
+let stringOne = document.getElementById("num1");
+let stringTwo = document.getElementById("num2");
 let operatorString = document.getElementById("operator");
 let equalsString = document.getElementById("equals");
 const numericButtons = document.getElementsByClassName("numeric-button");
-const limit = "000000000000000000000000";
+const equalsB = document.getElementById("equals-button")
+const limit = "0000000000000000000000";
 let cont = 0;
 let j = 4;
 let indexString = 1;
+let control = false;
 
 NumericButtons()
 
@@ -21,43 +24,42 @@ function adjustString() {
     }
 }
 
+function stringInput(string, i, number) {
+    string.textContent += numericButtons[i].textContent;
+    number += numericButtons[i].textContent;
+    parseFloat(number);
+}
+
 //Numeric Buttons
 
 
 function NumericButtons() {
+    
     for(let i = 0; i < numericButtons.length; i++) {
+
         numericButtons[i].addEventListener("click", event =>{
-            if(string.textContent.length < limit.length){
-                string.textContent += numericButtons[i].textContent;
-                if (string.id == "num1") {
-                    numberOne += string.textContent
-                } else if(string.id == "num2") {
-                    numberTwo += string.textContent
-                }
-                adjustString()
-                additionButton() 
-                subtractionButton()
-                multiplicationButton()
-                divisionButton()
-                equalsButton()               
-            }
             
+            if (!control && stringOne.textContent.length < limit.length) {
+                stringInput(stringOne, i, numberOne);
+            } else if(control && stringTwo.textContent.length < limit.length){
+                stringInput(stringTwo, i, numberTwo);
+            }
+            additionButton()  
+            equalsButton()
+            
+
         })
+
     }
 }
 
 function equalsButton() {
-    let equalsB = document.getElementById("equals-button")
-    parseFloat(numberOne);
-    parseFloat(numberTwo);
-    if(numberTwo > 0) {
-        equalsB.addEventListener("click", event => {
-            equalsString.textContent = `${operation(numberOne, numberTwo, operator)}`
-            document.getElementById("num1").textContent = ""
-            document.getElementById("num2").textContent = ""
-            document.getElementById("operator").textContent = ""
-        })
-    }
+
+    equalsB.addEventListener("click", event => {
+        //window.alert("test")
+        equalsString.textContent = operation(stringOne, stringTwo, operator);
+    })
+    
 }
 
 
@@ -65,13 +67,13 @@ function equalsButton() {
 //Operations Buttons
 
 function additionButton() {
-    if (string.textContent.length > 0) {
+    if (stringOne.textContent.length > 0) {
         let additionB = document.getElementById("addition-button");
 
         additionB.addEventListener("click", event =>{
             operatorString.textContent = "+";
-            operator = "+"
-            string = document.getElementById("num2");
+            operator = "+";
+            control = true;
             cont = 0;
             j = 4;
             indexString = 1;
@@ -127,35 +129,18 @@ function divisionButton() {
 
 //operation
 
-function operation(num1, num2, operator) {
+function operation(string1, string2, operator) {
     if(operator == "+") {
-        addition(num1, num2);
+        return `${Number(stringOne.textContent) + Number(stringTwo.textContent)}`
     } else if(operator == "-") {
-        subtraction(num1, num2);
+        return `${Number(stringOne.textContent) - Number(stringTwo.textContent)}`
     } else if(operator == "x") {
-        multiplication(num1, num2);
+        return `${Number(stringOne.textContent) * Number(stringTwo.textContent)}`
     } else if(operator == "/") {
-        division(num1, num2);
+        return `${Number(stringOne.textContent) / Number(stringTwo.textContent)}`
     }
 }
 
-//basic operations
-
-function addition(num1, num2) {
-    return num1 + num2;
-}
-
-function subtraction(num1, num2) {
-    return num1 - num2;
-}
-
-function multiplication(num1, num2) {
-    return num1 * num2;
-}
-
-function division(num1, num2) {
-    return num1 / num2;
-}
 
 
 
