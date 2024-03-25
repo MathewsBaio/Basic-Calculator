@@ -16,6 +16,8 @@ let controlEquals = false;
 NumericButtons()
 equalsButton()
 acButton()
+deleteButton()
+
 function adjustString() {
     cont++
     if(cont == j){
@@ -174,11 +176,18 @@ function acButton() {
 
 function deleteButton() {
     let delB = document.getElementById("del-button")
+    let i = 4;
+    if(!controlOperator){
+        i = cont;
+    }
 
     delB.addEventListener("click", event => {
+        //window.alert("aa")
+        cont--;
         if(!controlOperator) {
-            while (i < stringOne.innerText.length) {
+            while (i > 0) {
                 
+                stringOne.innerText = stringOne.innerText.substring(0,cont);
             }
         }
         
