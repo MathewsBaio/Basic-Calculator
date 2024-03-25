@@ -15,6 +15,7 @@ let controlEquals = false;
 
 NumericButtons()
 equalsButton()
+acButtons()
 function adjustString() {
     cont++
     if(cont == j){
@@ -159,6 +160,18 @@ function operation(string1, string2, operator) {
     }
 }
 
+
+//special buttons
+
+function acButtons() {
+    let acB = document.getElementById("ac-button")
+
+    acB.addEventListener("click", event =>{
+        recreatDisplay(stringOne, stringTwo, operatorString)
+        equalsString.innerText = ""
+        //window.alert("aa")
+    })
+}
 
 
 
